@@ -20,9 +20,7 @@ import {
   Divider,
   Dropdown,
   Owner,
-  Tooltip,
-  TooltipTrigger,
-  Typography,
+  Typography
 } from '@openmetadata/ui-core-components';
 import {
   ChevronDown,
@@ -46,8 +44,8 @@ import { ReactComponent as ImportIconContract } from '../../../assets/svg/import
 
 import {
   ContractImportFormat,
-  DataContractMode,
   DATA_CONTRACT_ACTION_DROPDOWN_KEY,
+  DataContractMode,
 } from '../../../constants/DataContract.constants';
 import { ERROR_PLACEHOLDER_TYPE } from '../../../enums/common.enum';
 import { DataContract } from '../../../generated/entity/data/dataContract';
@@ -343,11 +341,6 @@ const ContractDetail: React.FC<{
               </div>
               {(contract as ContractWithInheritance & { inherited?: boolean })
                 .inherited && (
-                <Tooltip
-                  title={t('label.inherited-entity', {
-                    entity: t('label.contract'),
-                  })}>
-                  <TooltipTrigger>
                     <ButtonUtility
                       color="tertiary"
                       icon={
@@ -357,9 +350,11 @@ const ContractDetail: React.FC<{
                         />
                       }
                       size="sm"
+                        tooltip={t('label.inherited-entity', {
+                    entity: t('label.contract'),
+                  })}
                     />
-                  </TooltipTrigger>
-                </Tooltip>
+                
               )}
             </Box>
             <Box align="center" gap={3}>
@@ -781,11 +776,6 @@ const ContractDetail: React.FC<{
                 }
 
                 const inheritedIcon = isInherited ? (
-                  <Tooltip
-                    title={t('label.inherited-entity', {
-                      entity: t('label.terms-of-service'),
-                    })}>
-                    <TooltipTrigger>
                       <ButtonUtility
                         color="tertiary"
                         icon={
@@ -795,9 +785,10 @@ const ContractDetail: React.FC<{
                           />
                         }
                         size="sm"
+                        tooltip={t('label.inherited-entity', {
+                      entity: t('label.terms-of-service'),
+                    })}
                       />
-                    </TooltipTrigger>
-                  </Tooltip>
                 ) : null;
 
                 return (
@@ -827,11 +818,6 @@ const ContractDetail: React.FC<{
               {!isEmpty(contract.security) &&
                 (() => {
                   const inheritedIcon = contract.security?.inherited ? (
-                    <Tooltip
-                      title={t('label.inherited-entity', {
-                        entity: t('label.security'),
-                      })}>
-                      <TooltipTrigger>
                         <ButtonUtility
                           color="tertiary"
                           icon={
@@ -841,9 +827,11 @@ const ContractDetail: React.FC<{
                             />
                           }
                           size="sm"
+                          tooltip={t('label.inherited-entity', {
+                        entity: t('label.security'),
+                      })}
                         />
-                      </TooltipTrigger>
-                    </Tooltip>
+                      
                   ) : null;
 
                   return (

@@ -531,19 +531,13 @@ const DataQualityTab: React.FC<DataQualityTabProps> = ({
       // (outside the Tooltip's w-max/h-max button) so its max-height + overflow
       // actually clip the cell height. Chromium/Firefox are unaffected.
       <div className="tw:max-h-11 tw:overflow-hidden">
-        <Tooltip
-          containerClassName="tw:break-all"
-          placement="top"
-          title={result.result}>
-          <TooltipTrigger>
             <Typography
               className="tw:m-0 tw:max-w-54 tw:w-54 tw:line-clamp-2 tw:break-all tw:whitespace-normal"
               data-testid={`reason-text-${record.name}`}
-              size="text-sm">
+              size="text-sm"
+              tooltip={result.result}>
               {result.result}
             </Typography>
-          </TooltipTrigger>
-        </Tooltip>
       </div>
     ) : (
       '--'

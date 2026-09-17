@@ -707,13 +707,6 @@ export const DataAssetsHeader = ({
     const isLoading = isAutoPilotWorkflowStatusLoading || isAutoPilotTriggering;
 
     return (
-      <Tooltip
-        placement="top"
-        title={
-          disableRunAgentsButtonMessage ??
-          t('message.trigger-auto-pilot-application')
-        }>
-        <TooltipTrigger>
           <Button
             color="primary"
             data-testid="trigger-auto-pilot-application-button"
@@ -721,11 +714,13 @@ export const DataAssetsHeader = ({
             isDisabled={disableRunAgentsButton}
             isLoading={isLoading}
             size="sm"
+            tooltip={
+          disableRunAgentsButtonMessage ??
+          t('message.trigger-auto-pilot-application')
+        }
             onPress={triggerTheAutoPilotApplication}>
             {t('label.trigger-entity', { entity: t('label.auto-pilot') })}
           </Button>
-        </TooltipTrigger>
-      </Tooltip>
     );
   }, [
     disableRunAgentsButton,
@@ -746,8 +741,6 @@ export const DataAssetsHeader = ({
     }
 
     return (
-      <Tooltip placement="bottom" title={t('label.source-url')}>
-        <TooltipTrigger>
           <Button
             color="secondary"
             data-testid="source-url-button"
@@ -755,13 +748,15 @@ export const DataAssetsHeader = ({
             iconLeading={IconExternalLink}
             rel="noopener noreferrer"
             size="sm"
-            target="_blank">
+            target="_blank"
+            tooltip={t('label.source-url')}
+            tooltipPlacement='bottom'
+            >
             {t('label.view-in-service-type', {
               serviceType: get(dataAsset, 'serviceType', ''),
             })}
           </Button>
-        </TooltipTrigger>
-      </Tooltip>
+       
     );
   }, [dataAsset, t]);
 
@@ -943,8 +938,6 @@ export const DataAssetsHeader = ({
             {t('label.deleted')}
           </span>
         )}
-        <Tooltip placement="top" title={copyTooltipTitle}>
-          <TooltipTrigger className="tw:flex tw:items-center">
             <Button
               aria-label={t('label.copy-item', {
                 item: t('label.url-uppercase'),
@@ -953,11 +946,11 @@ export const DataAssetsHeader = ({
               data-testid="entity-header-copy-button"
               iconLeading={Copy01}
               size="xs"
+              tooltip={copyTooltipTitle}
               type="button"
               onClick={handleCopyEntityUrl}
             />
-          </TooltipTrigger>
-        </Tooltip>
+
         <LearningIcon pageId={entityType} />
       </div>
     );

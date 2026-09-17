@@ -18,9 +18,7 @@ import {
   Dropdown,
   EmptyPlaceholder,
   Skeleton,
-  Tooltip,
-  TooltipTrigger,
-  Typography,
+  Typography
 } from '@openmetadata/ui-core-components';
 import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -247,17 +245,16 @@ const MemoryRowActions: FC<MemoryRowActionsProps> = ({
         <CopyIcon aria-hidden="true" height={20} width={20} />
       </CopyLinkButton>
       {canActOnMemory && canEdit && onEditMemory && (
-        <Tooltip title={t('label.edit')}>
-          <TooltipTrigger>
+        
             <ButtonUtility
               color="tertiary"
               data-testid="edit-memory-btn"
               icon={<EditIcon height={20} width={20} />}
               size="sm"
+              tooltip={t('label.edit')}
               onClick={() => onEditMemory(memory)}
             />
-          </TooltipTrigger>
-        </Tooltip>
+          
       )}
       {canActOnMemory && canDelete && (
         <MemoryActions memory={memory} onDeleteMemory={onDeleteMemory} />

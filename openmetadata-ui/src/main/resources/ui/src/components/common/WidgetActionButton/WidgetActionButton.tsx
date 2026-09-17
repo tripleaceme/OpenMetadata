@@ -11,9 +11,7 @@
  *  limitations under the License.
  */
 import {
-  ButtonUtility,
-  Tooltip,
-  TooltipTrigger,
+  ButtonUtility
 } from '@openmetadata/ui-core-components';
 import { ReactComponent as EditIcon } from '../../../assets/svg/action-icons/edit.svg';
 import { ReactComponent as ListConversationIcon } from '../../../assets/svg/action-icons/list-conversation.svg';
@@ -27,18 +25,15 @@ export const WidgetEditButton = ({
   ...props
 }: WidgetActionButtonProps) => {
   return (
-    <Tooltip title={title}>
-      <TooltipTrigger>
-        <ButtonUtility
-          className="tw:p-1"
-          color="tertiary"
-          icon={<EditIcon height={16} width={16} />}
-          size="xs"
-          onClick={onClick}
-          {...props}
-        />
-      </TooltipTrigger>
-    </Tooltip>
+      <ButtonUtility
+        className="tw:p-1"
+        color="tertiary"
+        icon={<EditIcon height={16} width={16} />}
+        size="xs"
+        tooltip={title}
+        onClick={onClick}
+        {...props}
+      />
   );
 };
 
@@ -48,18 +43,15 @@ export const WidgetPlusButton = ({
   ...props
 }: WidgetActionButtonProps) => {
   return (
-    <Tooltip title={title}>
-      <TooltipTrigger>
-        <ButtonUtility
-          className="tw:p-1"
-          color="tertiary"
-          icon={<PlusIcon height={15} width={15} />}
-          size="xs"
-          onClick={onClick}
-          {...props}
-        />
-      </TooltipTrigger>
-    </Tooltip>
+    <ButtonUtility
+      className="tw:p-1"
+      color="tertiary"
+      icon={<PlusIcon height={15} width={15} />}
+      size="xs"
+      tooltip={title}
+      onClick={onClick}
+      {...props}
+    />
   );
 };
 
@@ -69,18 +61,15 @@ export const WidgetCommentButton = ({
   ...props
 }: WidgetActionButtonProps) => {
   return (
-    <Tooltip title={title}>
-      <TooltipTrigger>
-        <ButtonUtility
-          className="tw:p-1"
-          color="tertiary"
-          icon={<ListConversationIcon height={16} width={16} />}
-          size="xs"
-          onClick={onClick}
-          {...props}
-        />
-      </TooltipTrigger>
-    </Tooltip>
+    <ButtonUtility
+      className="tw:p-1"
+      color="tertiary"
+      icon={<ListConversationIcon height={16} width={16} />}
+      size="xs"
+      tooltip={title}
+      onClick={onClick}
+      {...props}
+    />
   );
 };
 
@@ -90,17 +79,14 @@ export const WidgetRequestButton = ({
   ...props
 }: WidgetActionButtonProps) => {
   return (
-    <Tooltip title={title}>
-      <TooltipTrigger>
-        <ButtonUtility
-          className="tw:p-1"
-          color="tertiary"
-          icon={<RequestUpdateIcon height={16} width={16} />}
-          size="xs"
-          onClick={onClick}
-          {...props}
-        />
-      </TooltipTrigger>
-    </Tooltip>
+    <ButtonUtility
+      className="tw:p-1"
+      color="tertiary"
+      icon={<RequestUpdateIcon height={16} width={16} />}
+      size="xs"
+      tooltip={title}
+      onClick={onClick}
+      {...props}
+    />
   );
 };

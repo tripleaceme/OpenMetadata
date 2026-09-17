@@ -20,9 +20,7 @@ import {
   Modal,
   ModalOverlay,
   PageLayout,
-  Tooltip,
-  TooltipTrigger,
-  Typography,
+  Typography
 } from '@openmetadata/ui-core-components';
 import { AxiosError } from 'axios';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
@@ -139,19 +137,15 @@ export const WorkflowHeader: React.FC<WorkflowHeaderProps> = ({
   const systemBadge = useMemo(
     () =>
       isNoOp && (
-        <Tooltip
-          placement="top"
-          title={t('message.system-workflow-edit-restriction')}>
-          <TooltipTrigger>
             <Badge
               color="gray"
               data-testid="system-workflow-badge"
               size="sm"
+              tooltip={t('message.system-workflow-edit-restriction')}
               type="color">
               {t('label.system')}
             </Badge>
-          </TooltipTrigger>
-        </Tooltip>
+         
       ),
     [isNoOp, t]
   );

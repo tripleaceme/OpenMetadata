@@ -12,9 +12,7 @@
  */
 
 import {
-  Button,
-  Tooltip,
-  TooltipTrigger,
+  Button
 } from '@openmetadata/ui-core-components';
 import { RefreshCw01 } from '@untitledui/icons';
 import { FC, useCallback } from 'react';
@@ -39,56 +37,49 @@ const OntologyControlButtons: FC<OntologyControlButtonsProps> = ({
 
   return (
     <div className="tw:flex tw:shrink-0 tw:flex-wrap-nowrap tw:items-center tw:gap-1">
-      <TooltipTrigger>
-        <Tooltip placement="top" title={t('label.fit-to-screen')}>
+      
           <Button
             color="tertiary"
             data-testid="fit-view"
             iconLeading={<FitViewOptionsIcon height={20} width={20} />}
             size="sm"
+            tooltip={t('label.fit-to-screen')}
             onClick={handleFitView}
           />
-        </Tooltip>
-      </TooltipTrigger>
       <div className="tw:h-6 tw:w-px tw:bg-quaternary" />
 
-      <TooltipTrigger>
-        <Tooltip placement="top" title={t('label.zoom-in')}>
           <Button
             color="tertiary"
             data-testid="zoom-in"
             iconLeading={<ZoomInIcon height={20} width={20} />}
             size="sm"
+            tooltip={t('label.zoom-in')}
             onClick={onZoomIn}
           />
-        </Tooltip>
-      </TooltipTrigger>
+        
       <div className="tw:h-6 tw:w-px tw:bg-quaternary" />
-      <TooltipTrigger>
-        <Tooltip placement="top" title={t('label.zoom-out')}>
+
           <Button
             color="tertiary"
             data-testid="zoom-out"
             iconLeading={<ZoomOutIcon height={20} width={20} />}
             size="sm"
+            tooltip={t('label.zoom-out')}
             onClick={onZoomOut}
           />
-        </Tooltip>
-      </TooltipTrigger>
+      
       <div className="tw:h-6 tw:w-px tw:bg-quaternary" />
 
-      <TooltipTrigger>
-        <Tooltip placement="top" title={t('label.refresh')}>
           <Button
             color="tertiary"
             data-testid="refresh"
             iconLeading={<RefreshCw01 height={20} width={20} />}
             isDisabled={isLoading}
             size="sm"
+            tooltip={t('label.refresh')}
             onClick={onRefresh}
           />
-        </Tooltip>
-      </TooltipTrigger>
+        
     </div>
   );
 };

@@ -483,21 +483,16 @@ const ArticleDetailHeader: FC<ArticleDetailHeaderProps> = ({
         <Box align="center" className="tw:mr-1.5" gap={3}>
           {contentChangeIcon}
         </Box>
-
-        <Tooltip title={t('label.version-plural')}>
-          <TooltipTrigger>
             <Button
               className="tw:p-1.5"
               color="secondary"
               data-testid="version-btn"
               iconLeading={<VersionIcon height={16} width={16} />}
               size="sm"
+              tooltip={t('label.version-plural')}
               onClick={handleVersionClick}>
               {version}
             </Button>
-          </TooltipTrigger>
-        </Tooltip>
-
         <ButtonUtility
           className={
             voteStatus === QueryVoteType.votedUp

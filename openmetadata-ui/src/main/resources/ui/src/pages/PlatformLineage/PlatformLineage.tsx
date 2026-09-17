@@ -12,9 +12,7 @@
  */
 import {
   ButtonUtility,
-  Grid,
-  Tooltip,
-  TooltipTrigger,
+  Grid
 } from '@openmetadata/ui-core-components';
 import { Expand05, Home02, Minimize02 } from '@untitledui/icons';
 import { Card, Select } from 'antd';
@@ -257,34 +255,27 @@ const PlatformLineage = () => {
           onSearch={debouncedSearch}
         />
         <div className="d-flex gap-2">
-          <Tooltip
-            placement="top"
-            title={t('label.export-as-type', {
-              type: t('label.png-uppercase'),
-            })}>
-            <TooltipTrigger>
               <ButtonUtility
                 data-testid="export-button"
                 icon={DownloadIcon}
+                tooltip={t('label.export-as-type', {
+              type: t('label.png-uppercase'),
+            })}
                 onClick={handleExport}
               />
-            </TooltipTrigger>
-          </Tooltip>
+           
           <ButtonUtility
             data-testid="lineage-config"
             icon={SettingsOutlined}
             onClick={handleSettingsClick}
           />
-          <Tooltip
-            placement="top"
-            title={
+              <ButtonUtility
+                icon={isFullScreen ? Minimize02 : Expand05}
+                 tooltip={
               isFullScreen
                 ? t('label.exit-full-screen')
                 : t('label.full-screen-view')
-            }>
-            <TooltipTrigger>
-              <ButtonUtility
-                icon={isFullScreen ? Minimize02 : Expand05}
+            }
                 onClick={() =>
                   navigate({
                     search: QueryString.stringify({
@@ -294,8 +285,6 @@ const PlatformLineage = () => {
                   })
                 }
               />
-            </TooltipTrigger>
-          </Tooltip>
         </div>
       </div>
     );

@@ -11,9 +11,7 @@
  *  limitations under the License.
  */
 import {
-  ButtonUtility,
-  Tooltip,
-  TooltipTrigger,
+  ButtonUtility
 } from '@openmetadata/ui-core-components';
 import { Check } from '@untitledui/icons';
 import classNames from 'classnames';
@@ -44,9 +42,9 @@ const CopyLinkButton: FC<CopyLinkButtonProps> = ({
     tooltip ?? t('label.copy-item', { item: t('label.link') });
 
   return (
-    <Tooltip isDisabled={hasCopied} title={resolvedTooltip}>
-      <TooltipTrigger>
+   
         <ButtonUtility
+          
           className={classNames(
             hasCopied ? 'tw:rounded-full' : 'tw:rounded-md',
             hasCopied &&
@@ -72,11 +70,11 @@ const CopyLinkButton: FC<CopyLinkButtonProps> = ({
               children
             )
           }
+          isDisabled={hasCopied}
           size="sm"
+          tooltip={resolvedTooltip}
           onClick={() => onCopyToClipBoard()}
         />
-      </TooltipTrigger>
-    </Tooltip>
   );
 };
 

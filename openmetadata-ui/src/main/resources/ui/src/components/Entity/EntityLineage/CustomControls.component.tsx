@@ -17,8 +17,7 @@ import {
   Dropdown,
   Tabs,
   Tooltip,
-  TooltipTrigger,
-  Typography,
+  Typography
 } from '@openmetadata/ui-core-components';
 import classNames from 'classnames';
 import QueryString from 'qs';
@@ -602,17 +601,14 @@ const CustomControls: FC<{
     <div>
       <div className={classNames('tw:flex tw:w-full tw:justify-between')}>
         <div className="tw:flex tw:items-center tw:gap-4">
-          <Tooltip placement="top" title={t('label.filter-plural')}>
-            <TooltipTrigger>
-              <Button
-                aria-label={t('label.filter-plural')}
-                color={filterSelectionActive ? 'primary' : 'secondary'}
-                data-testid="filters-button"
-                iconLeading={FilterLinesIcon}
-                onClick={toggleFilterSelection}
-              />
-            </TooltipTrigger>
-          </Tooltip>
+            <Button
+              aria-label={t('label.filter-plural')}
+              color={filterSelectionActive ? 'primary' : 'secondary'}
+              data-testid="filters-button"
+              iconLeading={FilterLinesIcon}
+              tooltip={t('label.filter-plural')}
+              onClick={toggleFilterSelection}
+            />
           {searchBarComponent}
         </div>
         <div className="tw:flex tw:gap-4 tw:items-center">
@@ -626,31 +622,27 @@ const CustomControls: FC<{
             />
           )}
           {lineageEditButton}
-          <Tooltip placement="top" title={exportButtonLabel}>
-            <TooltipTrigger>
-              <ButtonUtility
-                aria-label={exportButtonLabel}
-                data-testid="export-button"
-                disabled={isEditMode}
-                icon={DownloadIcon}
-                onClick={handleExportClick}
-              />
-            </TooltipTrigger>
-          </Tooltip>
+          
+            <ButtonUtility
+              aria-label={exportButtonLabel}
+              data-testid="export-button"
+              disabled={isEditMode}
+              icon={DownloadIcon}
+              tooltip={exportButtonLabel}
+              onClick={handleExportClick}
+            />
+           
           {settingsButton}
-          <Tooltip placement="top" title={fullScreenLabel}>
-            <TooltipTrigger>
-              <ButtonUtility
-                aria-label={fullScreenLabel}
-                icon={fullScreenIcon}
-                onClick={() =>
-                  updateURLParams({
-                    [FULLSCREEN_QUERY_PARAM_KEY]: !isFullScreen,
-                  })
-                }
-              />
-            </TooltipTrigger>
-          </Tooltip>
+            <ButtonUtility
+              aria-label={fullScreenLabel}
+              icon={fullScreenIcon}
+              tooltip={fullScreenLabel}
+              onClick={() =>
+                updateURLParams({
+                  [FULLSCREEN_QUERY_PARAM_KEY]: !isFullScreen,
+                })
+              }
+            />
         </div>
       </div>
       {filterSelectionSection}

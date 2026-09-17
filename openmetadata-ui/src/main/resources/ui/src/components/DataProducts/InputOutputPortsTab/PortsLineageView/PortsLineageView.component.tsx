@@ -13,9 +13,7 @@
 
 import {
   Button,
-  Tooltip,
-  TooltipTrigger,
-  Typography,
+  Typography
 } from '@openmetadata/ui-core-components';
 import { Maximize01, Minimize01 } from '@untitledui/icons';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -249,13 +247,7 @@ const PortsLineageView = ({
       style={{ height: containerHeight }}>
       {onToggleFullScreen && (
         <div className="tw:absolute tw:top-2 tw:right-2 tw:z-10">
-          <Tooltip
-            title={
-              isFullScreen
-                ? t('label.exit-full-screen')
-                : t('label.full-screen')
-            }>
-            <TooltipTrigger>
+          
               <Button
                 color="secondary"
                 data-testid="toggle-fullscreen-btn"
@@ -266,10 +258,14 @@ const PortsLineageView = ({
                     <Maximize01 fill="#414651" height={18} width={18} />
                   )
                 }
+                 tooltip={
+              isFullScreen
+                ? t('label.exit-full-screen')
+                : t('label.full-screen')
+            }
                 onClick={handleToggleFullScreen}
               />
-            </TooltipTrigger>
-          </Tooltip>
+            
         </div>
       )}
 

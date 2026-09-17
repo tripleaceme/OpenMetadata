@@ -18,9 +18,7 @@ import {
   Divider,
   Input,
   Select,
-  Tooltip,
-  TooltipTrigger,
-  Typography,
+  Typography
 } from '@openmetadata/ui-core-components';
 import { AxiosError } from 'axios';
 import { Operation } from 'fast-json-patch';
@@ -290,17 +288,14 @@ export const OntologyNodeRelationsContent: React.FC<
                       {getDisplayName(rel.relationType)}
                     </Badge>
                     <div className="tw:min-w-0">
-                      <Tooltip arrow placement="top" title={labelText}>
-                        <TooltipTrigger className="tw:block tw:w-full">
                           <Typography
                             as="p"
                             className="tw:block tw:truncate tw:text-left tw:text-primary"
                             size="text-sm"
+                            tooltip={labelText}
                             weight="regular">
                             {labelText}
                           </Typography>
-                        </TooltipTrigger>
-                      </Tooltip>
                     </div>
                   </div>
                   {hasRowBelow ? <Divider orientation="horizontal" /> : null}
